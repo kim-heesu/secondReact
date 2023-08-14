@@ -65,8 +65,48 @@ function App() {
         <h4>{titleTest[2]}</h4>
         <button onClick={titleChange}>버튼버튼버튼</button>
       </div>
+
+    
+
+      <Modal></Modal>
+      <List />
+
     </div>
   );
 }
+
+// 컴포넌트 만드는 방법1
+function Modal(){
+  return(
+    <div className="modal">
+      <h4>제목</h4>
+      <p>날짜</p>
+      <p>내용</p>
+    </div>
+  )
+}
+
+function List(){
+  return(
+    <h4>안녕</h4>
+  )
+}
+
+// 컴포넌트 만드는 방법2
+// let Modal = () => {
+//   return(
+//     <div className="modal">
+//     <h4>제목</h4>
+//     <p>날짜</p>
+//     <p>내용</p>
+//   </div>
+//   )
+// }
+
+// 컴포넌트는 언제 사용하는가?
+// 1. 반복적인 html 축약할때
+// 2. 큰페이지들
+// 3. 자주변경되는것들
+
 
 export default App;
