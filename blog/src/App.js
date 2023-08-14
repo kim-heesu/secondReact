@@ -1,6 +1,5 @@
 /* eslint-disable */
 
-import logo from './logo.svg';
 import './App.css';
 import {useState} from 'react';
 
@@ -8,17 +7,19 @@ function App() {
 
   let [logo,setLogo] = useState('Reactblog');
   
-  let [titleTest,setTitleTest] = useState(['남자코트추천','강남우동맛집','파이썬독학'])
-  let [like, setLike] = useState(0);
+  let [titleTest,setTitleTest] = useState(['리액트재밌다','뷰가재밌다','앵귤러는??'])
+  let [like, setLike] = useState([0,15,0]);
 
   let [modal,setModal] = useState(false);
 
-  function likePlus(){
-    setLike(like+1);
+  function likePlus(index){
+    let likeCopy = [...like];
+    likeCopy[index] += 1;
+    setLike(likeCopy);
   }
 
   function nameChange(){
-    setTitle01('여자코트추천')
+    setTitle01('리액트잼있다')
   }
 
   function titleChange(){
@@ -46,17 +47,18 @@ function App() {
       </div>
       {
         titleTest.map(function(a,i){
-          return <div className="list">
-          <h4>{titleTest[i]}</h4>
+          return <div className="list" id={"list"+i}>
+          <h4>
+            {titleTest[i]} 
+            <span onClick={()=>likePlus(i)}>좋아요</span>
+            {like[i]}
+          </h4>
           <p>2월 17일 발행</p>
         </div>
         })
       }
       <button onClick={titleChange}>버튼버튼버튼</button>
       <button onClick={titleSort}>가나다순정렬</button>
-
-      
-      
 
       <button onClick={()=>{modal === false ? setModal(true) : setModal(false)}}>toggleModal</button>
       
