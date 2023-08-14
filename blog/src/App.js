@@ -7,10 +7,6 @@ import {useState} from 'react';
 function App() {
 
   let [logo,setLogo] = useState('Reactblog');
-
-  let [title01,setTitle01] = useState('남자코트추천');
-  let [title02,settitle02] = useState('강남우동맛집');
-  let [title03,settitle03] = useState('파이썬독학');
   
   let [titleTest,setTitleTest] = useState(['남자코트추천','강남우동맛집','파이썬독학'])
   let [like, setLike] = useState(0);
@@ -41,32 +37,26 @@ function App() {
   // Destructuring문법
   let num = [1,2];
   let [a,c] = [1,2];// a = 1 , b = 2  가 된다.
-  
+
+
   return (
     <div className="App">
       <div className="black-nav">
         <h4 style={{color:"red", fontSize:"15px"}}>{logo}</h4>
       </div>
-      <div className="list">
-        <h4>{title01} <span onClick={likePlus}>좋아요</span> {like} </h4>
-        <button onClick={nameChange}>이름바뀜</button>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{title02}</h4>
-        <p>2월 17일 발행</p>
-      </div>
-      <div className="list">
-        <h4>{title03}</h4>
-        <p>2월 17일 발행</p>
-      </div>
+      {
+        titleTest.map(function(a,i){
+          return <div className="list">
+          <h4>{titleTest[i]}</h4>
+          <p>2월 17일 발행</p>
+        </div>
+        })
+      }
+      <button onClick={titleChange}>버튼버튼버튼</button>
       <button onClick={titleSort}>가나다순정렬</button>
-      <div className='list'>
-        <h4>{titleTest[0]}</h4>
-        <h4>{titleTest[1]}</h4>
-        <h4>{titleTest[2]}</h4>
-        <button onClick={titleChange}>버튼버튼버튼</button>
-      </div>
+
+      
+      
 
       <button onClick={()=>{modal === false ? setModal(true) : setModal(false)}}>toggleModal</button>
       
