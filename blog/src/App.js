@@ -15,6 +15,8 @@ function App() {
   let [titleTest,setTitleTest] = useState(['남자코트추천','강남우동맛집','파이썬독학'])
   let [like, setLike] = useState(0);
 
+  let [modal,setModal] = useState(false);
+
   function likePlus(){
     setLike(like+1);
   }
@@ -66,10 +68,12 @@ function App() {
         <button onClick={titleChange}>버튼버튼버튼</button>
       </div>
 
-    
-
-      <Modal></Modal>
-      <List />
+      <button onClick={()=>{modal === false ? setModal(true) : setModal(false)}}>toggleModal</button>
+      
+      {
+        modal === true ? <Modal/> : null
+      } 
+      
 
     </div>
   );
@@ -86,12 +90,6 @@ function Modal(){
   )
 }
 
-function List(){
-  return(
-    <h4>안녕</h4>
-  )
-}
-
 // 컴포넌트 만드는 방법2
 // let Modal = () => {
 //   return(
@@ -102,11 +100,5 @@ function List(){
 //   </div>
 //   )
 // }
-
-// 컴포넌트는 언제 사용하는가?
-// 1. 반복적인 html 축약할때
-// 2. 큰페이지들
-// 3. 자주변경되는것들
-
 
 export default App;
