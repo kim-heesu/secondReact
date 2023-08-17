@@ -7,7 +7,8 @@ function App() {
 
   let [logo,setLogo] = useState('Reactblog');
   
-  let [titleTest,setTitleTest] = useState(['남자코트추천','강남우동맛집','파이썬독학'])
+  let [titleTest,setTitleTest] = useState(['남자코트추천','강남우동맛집','파이썬독학']);
+  let [title,setTitle] = useState(0);
   let [like, setLike] = useState([0,15,0]);
 
   let [modal,setModal] = useState(false);
@@ -44,7 +45,7 @@ function App() {
       {
         titleTest.map(function(a,i){
           return <div className="list" id={"list"+i}>
-          <h4>
+          <h4 onClick={()=>{modal === false ? setModal(true) : setModal(false),setTitle(i)}}>
             {titleTest[i]}  
             <span onClick={()=>likePlus(i)} style={{"margin":"0 5px"}}>좋아요</span>
             {like[i]}
@@ -56,10 +57,9 @@ function App() {
       <buttoln onClick={titleChange}>이름바꾸기</buttoln>
       <button onClick={titleSort}>가나다순정렬</button>
 
-      <button onClick={()=>{modal === false ? setModal(true) : setModal(false)}}>toggleModal</button>
       
       {
-        modal === true ? <Modal change={titleChange} color="pink" titleTest={titleTest}/> : null
+        modal === true ? <Modal titleChange={titleChange} color="pink" titleTest={titleTest} title={title}/> : null
       } 
       
       {/* props방법
@@ -74,13 +74,13 @@ function App() {
 }
 
 // 컴포넌트 만드는 방법1
-function Modal(props){
+function Modal(props,index){
   return(
     <div className="modal" style={{background: props.color}}>
-      <h4>{props.titleTest[0]}</h4>
+      <h4>{props.titleTest[props.title]}</h4>
       <p>날짜</p>
       <p>내용</p>
-      <button onClick={props.change}>글 수정</button>
+      <button onClick={()=>{props.titleChange()}}>글 수정</button>
     </div>
   )
 }
