@@ -9,9 +9,11 @@
 
 .main-bg{
   height: 500px;
-  background:url('./img/main_visual02.png') no-repeat center top / contain;
+  background:url('../public/img/main_visual02.png') no-repeat center top / cover;
 }
-
+img{
+  max-width:100%;
+}
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;
