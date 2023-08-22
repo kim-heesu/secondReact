@@ -1,8 +1,9 @@
+import {useState} from "react";
 import './App.css';
 import {Nav,Navbar,Container,Row,Col} from 'react-bootstrap';
+import data from './data.json';
 
 function App() {
-  
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light" className="nav">
@@ -18,13 +19,16 @@ function App() {
       <div className="main-bg"></div>
       <Container>
         <Row>
-          <Col md={4}>
+          data
+         
+ 
+          {/* <Col md={4}>
             <img src={process.env.PUBLIC_URL + '/img/best_product01.png'} alt="product images" />
             <h4>Product</h4>
             <p>product info</p>
           </Col>
           <Col md={4}>hi</Col>
-          <Col md={4}>hi</Col>
+          <Col md={4}>hi</Col> */}
         </Row>
       </Container>
     </div>
