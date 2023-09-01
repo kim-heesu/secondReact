@@ -6,11 +6,10 @@ function ProdCol(props){
    <>
       <Col md={4}>
         <img src={process.env.PUBLIC_URL + '/img/best_product01.png'} alt="product images" />
-        <h4>ㅇ</h4>
-        <p>product info</p>
+        <h4>{props.title}</h4>
+        <p>{props.content}</p>
+        <p>{props.price}</p>
       </Col>
-      <Col md={4}>hi</Col>
-      <Col md={4}>hi</Col>
    </>
   );
 }

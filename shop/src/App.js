@@ -5,8 +5,7 @@ import data from './data.js';
 import ProdCol from './ProductCol';
 
 function App() {
-  let [shoes] = useState(data)
-  console.log(shoes)
+  let [product] = useState(data)
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light" className="nav">
@@ -22,7 +21,11 @@ function App() {
       <div className="main-bg"></div>
       <Container>
         <Row>
-          <ProdCol />
+        {product.map((prod)=>{
+            return <ProdCol  title={prod.title} content={prod.content} price={prod.price}/>
+              // key를 index로 변경 할수도있다.
+        })}
+          
         </Row>
       </Container>
     </div>
