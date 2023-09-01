@@ -1,4 +1,10 @@
-[
+// let a =[1,2,3] //array 자료형
+// a[0] //1 출력 , indexing
+
+// let b ={name:1,age:2} //object 자료형 (이름이 필요)
+// b.name // 1 출력 , object 자료는 이렇게 쓴다.
+
+let data = [
     {
         "id":0,
         "title" : "simple product",
@@ -24,3 +30,5 @@
         "price": 14000 
     }
 ]
+
+export default data;
