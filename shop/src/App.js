@@ -28,6 +28,8 @@ function App() {
 
         <Route path="*" element={<div>없는페이지입니다</div>}/>
 
+        {/* nested Routes = 여러 유사한 페이지 필요할 때 사용!*/}
+        {/* nested routes는 동시에 두개의 엘리먼트를 보여줌 (outlet을 통해 About + 뒤의 패스에 따른 엘리먼트) */}
         <Route path="/about" element={<About />}>
           <Route path="member" element={<Member />}/>
           <Route path="location" element={<Location />}/>
@@ -36,6 +38,8 @@ function App() {
     </div>
   );
 }
+
+// nested Routes는 outlet으로 다음 패스에따른 엘리먼트의 위치를 정해줘야한다.
 function About(){
   return(
     <div>
