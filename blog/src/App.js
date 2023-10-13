@@ -71,7 +71,7 @@ function App() {
         </div>
         })
       }
-      <buttoln onClick={titleChange}>이름바꾸기</buttoln>
+      <button onClick={titleChange}>이름바꾸기</button>
       <button onClick={titleSort}>가나다순정렬</button>
 
       <input onChange={(e)=>{setValue(e.target.value)}}/>

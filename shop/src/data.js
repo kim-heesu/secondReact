@@ -7,25 +7,25 @@
 let data = [
     {
         "id":0,
-        "title" : "simple product",
-        "content": "네일리 제품2",
+        "title" : "simple product0",
+        "content": "네일리 제품0",
         "price":120000 
     },
     {
         "id":1,
-        "title" : "simple product2",
+        "title" : "simple product1",
         "content": "게일리 제품1",
         "price":120000 
     },
     {
         "id":2,
-        "title" : "simple product3",
-        "content": "레일리 제품4",
+        "title" : "simple product2",
+        "content": "레일리 제품2",
         "price":120000 
     },
     {
         "id":3,
-        "title" : "simple product4",
+        "title" : "simple product3",
         "content": "데일리 제품3",
         "price": 14000 
     }

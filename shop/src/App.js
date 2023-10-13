@@ -10,6 +10,18 @@ function App() {
   let [product,setProduct] = useState(data)
   let navigate =  useNavigate();
 
+  function sortTitle(){
+    let copyProd = [...product];
+    copyProd.sort(function (a, b) {
+      if (a["content"] > b["content"]) {
+        return 1;
+      }else if (a["content"] < b["content"]) {
+        return -1;
+      }
+    });
+    setProduct(copyProd);
+    console.log(product)
+  }
 
   return (
     <div className="App">
@@ -24,6 +36,7 @@ function App() {
         </Container>
       </Navbar>
      
+     <button type="button" onClick={sortTitle}>정렬</button>
       <Routes>
         <Route path="/" element={<Main product={product}/>}/>
         <Route path="/detail/:id" element={<Detail product={product}/>}/>
