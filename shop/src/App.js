@@ -1,30 +1,33 @@
 import './App.css';
+import { useState } from 'react';
 import {Nav,Navbar,Container} from 'react-bootstrap';
 import { Routes,Route ,useNavigate, Outlet} from "react-router-dom";
 import Main from './routes/Main';
 import Detail from './routes/Detail';
+import data from './data.js';
 
 function App() {
- 
+  let [product,setProduct] = useState(data)
   let navigate =  useNavigate();
+
 
   return (
     <div className="App">
       <Navbar bg="light" data-bs-theme="light" className="nav">
         <Container>
-          <Navbar.Brand href="/">~Main~</Navbar.Brand>
+          <Navbar.Brand href="/">Main</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link onClick={()=>{navigate(-1)}}>뒤로가기</Nav.Link>
+            <Nav.Link onClick={()=>{navigate(-1)}}>뒤로</Nav.Link>
             <Nav.Link onClick={()=>{navigate('/')}}>Home</Nav.Link>
-            <Nav.Link onClick={()=>{navigate('/detail')}}>Detail</Nav.Link>
-            <Nav.Link onClick={()=>{navigate(+1)}}>앞으로가기</Nav.Link>
+            <Nav.Link onClick={()=>{navigate(+1)}}>앞으로</Nav.Link>
           </Nav>
         </Container>
       </Navbar>
      
       <Routes>
-        <Route path="/" element={<Main />}/>
-        <Route path="/detail" element={<Detail />}/>
+        <Route path="/" element={<Main product={product}/>}/>
+        <Route path="/detail/:id" element={<Detail product={product}/>}/>
+        {/* /detail:id = :URL파라미터 */}
 
         <Route path="*" element={<div>없는페이지입니다</div>}/>
 
