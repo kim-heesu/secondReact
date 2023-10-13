@@ -9,7 +9,7 @@
 
 .main-bg{
   height: 500px;
-  background:url('../public/img/main_visual02.png') no-repeat center top / cover;
+  background:url('../public/img/main_visual02.png') no-repeat center top / contain;
 }
 img{
   max-width:100%;
